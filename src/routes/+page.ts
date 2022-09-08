@@ -1,13 +1,14 @@
-import type { BoardGame } from '../types/BoardGame';
-import { makeBGGRequest, flatten } from '../utils/bgg';
+import type { BoardGameListItem } from '../types';
+import { getHotBoardGames } from '../utils/bgg';
 
-export async function load(): Promise<{ boardgames: BoardGame[] }> {
-	const data = await makeBGGRequest({ path: '/hot?type=boardgame' });
-	const boardgames = data.items.item.map(flatten) ?? [];
+export async function load(): Promise<{
+	boardgames: Awaited<ReturnType<typeof getHotBoardGames>>;
+}> {
+	const boardgames = await getHotBoardGames();
 
 	return {
 		boardgames
-	} as { boardgames: BoardGame[] };
+	} as { boardgames: BoardGameListItem[] };
 }
 
 export const csr = false;
