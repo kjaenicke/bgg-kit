@@ -8,21 +8,6 @@ const getObjValue = (obj: any) => {
 	return ret;
 };
 
-type GenericXmlNode = { $: { value: string } };
-type IdXmlNode = {
-	$?: {
-		id: string;
-	};
-};
-
-interface BaseXMLResult {
-	[key: string]: string | GenericXmlNode | GenericXmlNode[] | IdXmlNode;
-}
-
-interface BaseFlattenResult {
-	id?: string;
-}
-
 export function flatten<T extends object>(input: any): T {
 	const out: any = {};
 

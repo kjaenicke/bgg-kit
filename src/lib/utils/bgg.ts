@@ -1,7 +1,7 @@
 import axios from 'axios';
-import type { BoardGameListItem } from 'src/types';
+import type { BoardGameListItem } from 'src/lib/types';
 import { parseString } from 'xml2js';
-import { flatten } from './xml';
+import { flatten } from '$lib/utils/xml';
 
 export async function getHotBoardGames() {
 	const data = await makeBGGRequest<{ items: { item: object[] } }>({ path: '/hot?type=boardgame' });

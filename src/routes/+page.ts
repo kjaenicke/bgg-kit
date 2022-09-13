@@ -1,14 +1,16 @@
-import type { BoardGameListItem } from '../types';
-import { getHotBoardGames } from '../utils/bgg';
+import type { Load } from '@sveltejs/kit';
+import type { BoardGameListItem } from '$lib/types';
+import { PUBLIC_BASE_URL } from '$env/static/public';
 
-export async function load(): Promise<{
-	boardgames: Awaited<ReturnType<typeof getHotBoardGames>>;
-}> {
-	const boardgames = await getHotBoardGames();
+export const load: Load = async ({
+	fetch
+}): Promise<{
+	boardgames: BoardGameListItem[];
+}> => {
+	const response = await fetch(`${PUBLIC_BASE_URL}/api/hot-boardgames`);
+	const boardgames = await response.json();
 
 	return {
 		boardgames
 	} as { boardgames: BoardGameListItem[] };
-}
-
-export const csr = false;
+};
