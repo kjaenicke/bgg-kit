@@ -36,7 +36,10 @@
 	"dependencies": {
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/typography": "^0.5.7",
+		"@types/lodash.omit": "^4.5.7",
 		"axios": "^0.27.2",
+		"lodash.omit": "^4.5.0",
+		"svelte-local-storage-store": "^0.3.1",
 		"xml2js": "^0.4.23"
 	}
 }
