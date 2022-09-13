@@ -9,6 +9,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>BGG Kit | {data.boardgame.name}</title>
+</svelte:head>
+
 <div class="bg-white">
 	<div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
 		<div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
