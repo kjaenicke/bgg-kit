@@ -35,7 +35,7 @@
 					{boardGame.yearpublished}
 				</p>
 			</div>
-			<div class="flex items-center justify-self-end">
+			<div on:click|preventDefault={toggleShowDetails} class="flex items-center justify-self-end">
 				<Icon src={Eye} theme="solid" class="text-gray-400 h-6" />
 			</div>
 		</div>
